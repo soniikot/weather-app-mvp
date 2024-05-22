@@ -314,7 +314,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "start": "webpack serve --config webpack.config.js"
+    "start": "webpack serve --config webpack.config.js",
+    "push": " git subtree push --prefix dist origin gh-pages"
   },
   "keywords": [],
   "author": "",
