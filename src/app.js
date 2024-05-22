@@ -1,4 +1,3 @@
-require("dotenv").config();
 export const apiKey = process.env.WEATHER_API_KEY;
 
 import { EventEmitter } from "./base/events/index.js";

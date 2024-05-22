@@ -1,33 +1,11 @@
 export class EventEmitter {
-  //TODO
-  /**
-   *
-   * {
-   *  "data:changed": [() => {}, [], ]
-   *  "fetch:error": [() => {}, []]
-   * }
-   *
-   *
-   *  [() => {}, () => {}, () => {}]
-   **/
-
-  // myObj = {
-  //   "data:changed": []
-  // }
-
-  // myObj.hasOwnProperty('data:changed')
-
-  // myObj['data:changed'] = [() => { }]
-
-  // myObj['data:changed'].push(() => {})
-
   constructor() {
-    this._events = new Map(); //what is map?
+    this._events = new Map();
   }
 
   on(eventName, callback) {
     if (!this._events.has(eventName)) {
-      this._events.set(eventName, new Set()); //what is set
+      this._events.set(eventName, new Set());
     }
     this._events.get(eventName).add(callback);
   }
