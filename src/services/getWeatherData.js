@@ -1,6 +1,7 @@
 import { apiKey } from "../app.js";
 
 export const getWeatherData = async (value, fetchError) => {
+  //why do we need catch and if statement with error. Is it the same?
   try {
     const response = await fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${value}&days=3&aqi=no`
@@ -14,6 +15,6 @@ export const getWeatherData = async (value, fetchError) => {
 
     return data;
   } catch (error) {
-    console.error("Error fetching weather data:", error);
+    alert(error);
   }
 };
