@@ -19,7 +19,6 @@ export class Store extends Model {
   };
 
   fetch = async (city) => {
-    // debugger;
     if (!city) {
       return;
     }

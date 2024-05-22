@@ -8,7 +8,6 @@ export const getWeatherData = async (value, fetchError) => {
 
     if (response.status !== 200) {
       throw new Error("Request error");
-      fetchError();
     }
 
     const data = await response.json();

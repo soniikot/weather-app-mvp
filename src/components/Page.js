@@ -1,3 +1,6 @@
+import sunnyImage from "../img/sunny.jpg";
+import cloudyImage from "../img/cloudy.jpg";
+
 export class Page {
   constructor() {
     this.form = document.getElementById("form");
@@ -55,20 +58,81 @@ export class Page {
   }
 
   changeBackground(data) {
+    console.log(data.current.condition.text);
     switch (data.current.condition.text.toLowerCase()) {
       case "sunny":
-        document.body.style.backgroundImage = "url(../img/sunny.jpg)";
-        console.log("Sunny");
+        document.body.style.backgroundImage = 'url(../src/img/sunny.jpg")';
         break;
       case "cloudy":
-        document.body.style.backgroundImage = "url(../img/cloudy.jpg)";
+      case "partly cloudy":
+      case "overcast":
+      case "mist":
+      case "patchy rain possible":
+      case "patchy snow possible":
+      case "patchy sleet possible":
+      case "patchy freezing drizzle possible":
+      case "thundery outbreaks possible":
+        document.body.style.backgroundImage = 'url(../src/img/cloudy.jpg")';
         console.log("Cloudy");
         break;
-      case "rainy":
-        console.log("Rainy");
+      case "clear":
+        document.body.style.backgroundImage = 'url(../src/img/clear.jpg")';
+        console.log("clear");
         break;
-      case "snow":
-        console.log("Snow");
+      case "rainy":
+      case "heavy rain":
+      case "patchy light drizzle":
+      case "light drizzle":
+      case "freezing drizzle":
+      case "heavy freezing drizzle":
+      case "patchy light rain":
+      case "light rain":
+      case "moderate rain at times":
+      case "moderate rain":
+      case "heavy rain at times":
+      case "light freezing rain":
+      case "moderate or heavy freezing rain":
+      case "patchy light rain":
+      case "light rain":
+      case "moderate rain at times":
+      case "moderate rain":
+      case "heavy rain at times":
+      case "light rain shower":
+      case "moderate or heavy rain shower":
+      case "torrential rain shower":
+      case "light sleet showers":
+      case "moderate or heavy rain shower":
+      case "torrential rain shower":
+      case "light sleet showers":
+      case "moderate or heavy sleet showers":
+        document.body.style.backgroundImage = 'url(../src/img/rain.jpg")';
+        break;
+      case "blowing snow":
+      case "light sleet":
+      case "moderate or heavy sleet":
+      case "moderate or heavy sleet":
+      case "light snow":
+      case "patchy moderate snowt":
+      case "moderate snow":
+      case "blowing snow":
+      case "patchy heavy snow":
+      case "heavy snow":
+      case "ice pellets":
+      case "light snow showers":
+      case "moderate or heavy snow showers":
+      case "light showers of ice pellets":
+      case "moderate or heavy showers of ice pellets":
+        document.body.style.backgroundImage = 'url(../src/img/snow.jpg")';
+        break;
+      case "fog":
+      case "freezing fog":
+        document.body.style.backgroundImage = 'url(../src/img/fog.jpg")';
+        break;
+      case "moderate or heavy rain with thunder":
+      case "patchy light rain with thunder":
+      case "patchy light snow with thunder":
+      case "moderate or heavy snow with thunder":
+        document.body.style.backgroundImage = 'url(../src/img/thunder.jpg")';
         break;
       default:
         console.log("Default");
