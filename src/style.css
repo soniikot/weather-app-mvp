@@ -23,6 +23,6 @@ body {
   height: 100px;
 }
 
-.showforecast > div {
+.showforecast > .forecastDiv {
   flex: 1;
 }

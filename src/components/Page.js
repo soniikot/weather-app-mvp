@@ -22,7 +22,9 @@ export class Page {
     this.form.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const formData = new FormData(event.target); //what is target
+      console.log(`components/Page.js - line: 25 ->> event`, event);
+
+      const formData = new FormData(event.target);
       const cityName = formData.get("cityName");
 
       callback(cityName);
@@ -30,11 +32,18 @@ export class Page {
   }
 
   updateCurrentWeather(data) {
+    const { current, location } = data;
+    const { condition } = current;
+    const { name } = location;
+
     this.icon.innerHTML = `<img src="${data.current.condition.icon}"  alt="Weather icon">`;
     this.location.textContent = `${data.location.name}, ${data.location.region}, ${data.location.country}`;
     this.temperature.textContent = `Temperature: ${data.current.temp_f}°F`;
     this.windDirection.textContent = `Wind Direction: ${data.current.wind_dir}`;
     this.precipitation.textContent = `Precipitation: ${data.current.precip_in}%`;
+
+    this.updateForecast(data);
+    this.changeBackground(data);
   }
 
   updateForecast(data) {
@@ -45,11 +54,10 @@ export class Page {
     this.precipitation.textContent = `Precipitation: ${data.current.precip_in}%`;
 
     this.forecast.innerHTML = "";
-
-    for (let i = 0; i < 3; i++) {
-      const forecastDay = data.forecast.forecastday[i];
+    const forecastDays = data.forecast.forecastday;
+    forecastDays.forEach((forecastDay) => {
       const forecastElement = document.createElement("div");
-
+      forecastElement.classList.add("forecastDiv");
       forecastElement.innerHTML = `
       <p>${forecastDay.date}<br>
       <img class="condition-icon" src="${forecastDay.day.condition.icon}" alt="Weather icon"><br>
@@ -59,15 +67,27 @@ export class Page {
     `;
 
       this.forecast.appendChild(forecastElement);
-    }
+    });
   }
 
   changeBackground(data) {
-    console.log(data.current.condition.text);
+    // ./helpers/fn name.js
+    // function getBackground(data.current.condition.text.toLowerCase()) {
+    // switch
+    // case
+    // return {bg: '', color: ''}
+    // }
+
+    // const {bg, color} = getBackground(data.current.condition.text.toLowerCase())
+
+    // document.body.style.backgroundImage = bg;
+    // document.body.style.color = color;
+
     switch (data.current.condition.text.toLowerCase()) {
       case "sunny":
         document.body.style.backgroundImage = `url(${sunnyImage})`;
         break;
+      // case ['...', '...', '...'].includes(data.current.condition.text.toLowerCase())
       case "cloudy":
       case "partly cloudy":
       case "overcast":

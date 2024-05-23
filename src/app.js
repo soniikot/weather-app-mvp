@@ -1,5 +1,3 @@
-export const apiKey = process.env.WEATHER_API_KEY;
-
 import { EventEmitter } from "./base/events/index.js";
 import { Page } from "./components/Page.js";
 import { Store } from "./store/index.js";
@@ -18,13 +16,15 @@ function initApp() {
 
   events.on("data:changed", () => {
     page.updateCurrentWeather(store.weatherData);
-    page.updateForecast(store.weatherData);
-    page.changeBackground(store.weatherData);
+    // page.updateForecast(store.weatherData);
+    // page.changeBackground(store.weatherData);
   });
 
-  events.on("city:changed", () => {});
+  // events.on("city:changed", () => {});
 
-  events.on("data:fetch-error", () => {});
+  events.on("data:fetch-error", () => {
+    alert("Data fetch alert");
+  });
 
   store.fetch("");
 }
