@@ -38,6 +38,15 @@ export class Page {
     changeBackground(data);
   }
 
+  showLoading() {
+    const loading = document.querySelector(".loading");
+    loading.textContent = "loading";
+  }
+
+  finishLoading() {
+    const loading = document.querySelector(".loading");
+    loading.textContent = "";
+  }
   updateForecast(data) {
     this.forecast.innerHTML = "";
     const forecastDays = data.forecast.forecastday;

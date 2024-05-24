@@ -13,7 +13,6 @@ function initApp() {
   const page = new Page();
 
   page.submitFrom(store.setCity);
-
   events.on("data:changed", () => {
     page.updateCurrentWeather(store.weatherData);
   });
@@ -23,10 +22,10 @@ function initApp() {
   });
 
   events.on("data:loading", () => {
-    alert("loading");
+    page.showLoading();
   });
   events.on("data:finish-loading", () => {
-    alert("finish-loading");
+    page.finishLoading();
   });
   store.fetch("");
 }
