@@ -1,11 +1,15 @@
 const apiKey = process.env.WEATHER_API_KEY;
 
-export const getWeatherData = async (value, fetchError) => {
+export const getWeatherData = async (
+  value,
+  fetchError,
+  loading,
+  finishLoading
+) => {
   const API_URL = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${value}&days=3&aqi=no`;
   try {
     const response = await fetch(API_URL);
-
-    // event data:loading()
+    loading();
 
     if (response.status !== 200) {
       fetchError();
@@ -18,9 +22,6 @@ export const getWeatherData = async (value, fetchError) => {
   } catch (error) {
     alert(error);
   } finally {
-    // event data:finish-loading
+    finishLoading();
   }
 };
-
-// EventBus
-// Шина событий

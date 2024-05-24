@@ -16,15 +16,17 @@ function initApp() {
 
   events.on("data:changed", () => {
     page.updateCurrentWeather(store.weatherData);
-    // page.updateForecast(store.weatherData);
-    // page.changeBackground(store.weatherData);
   });
-
-  // events.on("city:changed", () => {});
 
   events.on("data:fetch-error", () => {
-    alert("Data fetch alert");
+    alert("Data fetch error");
   });
 
+  events.on("data:loading", () => {
+    alert("loading");
+  });
+  events.on("data:finish-loading", () => {
+    alert("finish-loading");
+  });
   store.fetch("");
 }

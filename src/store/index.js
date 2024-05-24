@@ -7,7 +7,6 @@ export class Store extends Model {
   set(value) {
     this.weatherData = value;
     this.emitChanges("data:changed");
-    // this.emitChanges("*");
   }
 
   get() {
@@ -22,11 +21,12 @@ export class Store extends Model {
     if (!city) {
       return;
     }
-    const data = await getWeatherData(city, () =>
-      this.emitChanges("data:fetch-error")
+    const data = await getWeatherData(
+      city,
+      () => this.emitChanges("data:fetch-error"),
+      () => this.emitChanges("data:loading"),
+      () => this.emitChanges("data:finish-loading")
     );
-
-    console.log("fetch", this.get());
 
     this.set(data);
   };
