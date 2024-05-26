@@ -1,9 +1,10 @@
 <b>Weather App</b>
 
 This is a learning project for The Odin Project. (https://www.theodinproject.com/lessons/node-path-javascript-weather-app) to practice 
-Vanilla Java-Script, 
+Vanilla Java-Script<be> 
 See life <a>https://soniikot.github.io/weather-app-mvp/ </a>
 <img width="1091" alt="Screenshot 2024-05-26 at 2 30 08 PM" src="https://github.com/soniikot/weather-app-mvp/assets/141673962/95005eb4-3761-4910-832e-491079dc5312">
+<br>
 
 <b>Goals</b>
 <ol>
